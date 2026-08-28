@@ -18,6 +18,16 @@ public class GradeAnalyzerTest {
     }
  
     @Test
+    void calculateAverage_returnsCorrectAverage_forManyScores() { 
+        ArrayList<Integer> scores = new ArrayList<>();
+        for (int i = 1; i <= 100; i++) {
+            scores.add(i);
+        }
+        double expected = (double) (100 * 101 / 2) / 100;
+        assertEquals(expected, GradeAnalyzer.calculateAverage(scores));
+    }
+ 
+    @Test
     void calculateAverage_returnsSingleValue_whenListHasOneItem() { 
         ArrayList<Integer> scores = new ArrayList<>(Arrays.asList(75)); 
         assertEquals(75.0, GradeAnalyzer.calculateAverage(scores));
